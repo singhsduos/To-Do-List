@@ -1,0 +1,211 @@
+/*
+ ______________________________________________
+|                                              |
+|     DEFAULT BODY AND OTHER CSS TAG           |
+|______________________________________________|
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-theme: #0ed2f7;
+  --lightBlue-shade: #b2fefa;
+  --font-shade: #fff;
+  --main-fontColor: #03045e;
+}
+
+body {
+  background: var(--lightBlue-shade); /*  fallback for old browsers */
+  background: -webkit-linear-gradient(
+    315deg,
+    var(--blue-theme) 0,
+    var(--lightBlue-shade) 74%
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    315deg,
+    var(--blue-theme) 0,
+    var(--lightBlue-shade) 84%
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: var(--main-fontColor);
+  min-height: 100vh;
+  display: flex;
+}
+
+h1 {
+  margin: -3rem 0rem;
+}
+
+.container {
+  width: 50.625rem;
+  margin: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 34.375rem;
+}
+
+.upperDiv {
+  position: relative;
+  width: 50.6rem;
+  background: #4361ee;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 20px 0px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  height: 12.6875rem;
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.rotate-div {
+  /* position: absolute; */
+  transform: rotate(180deg);
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+.full-date {
+  display: flex;
+  flex-direction: row;
+  width: 50.6rem;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.dayYearMonth-Conti {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.yearAndMonths {
+  margin: 0rem 0.4rem;
+}
+
+.day {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.month {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.year {
+  font-size: 1.2rem;
+}
+
+.weekDay {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.lowerDiv {
+  width: 50.6rem;
+  background: #f1eff0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 1px 20px 0px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  min-height: 21.6875rem;
+  position: relative;
+}
+
+.inside-conti {
+  width: 80%;
+  background: #f8f8f8;
+  min-height: 22.8rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+/* .todo-conti{
+  border: 2px solid red;
+  height: 6rem;
+}
+
+.todo-list{
+   border: 2px solid blue;
+  height: 4rem;
+} */
+
+i {
+  color: #03045e;
+  width: 1rem;
+  height: 1rem;
+}
+
+
+.btns{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.btn-div1 {
+  width: 2rem;
+  height: 2rem;
+  background: var(--blue-theme);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  line-height: 2rem;
+  text-align: center;
+  border-bottom-left-radius: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-div2 {
+  width: 2rem;
+  height: 2rem;
+  background: var(--lightBlue-shade);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  line-height: 2rem;
+  text-align: center;
+  border-top-left-radius: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo {
+  height: 6rem;
+  width: 95%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #ffffff;
+  margin: 0.7rem auto;
+  display: flex;
+  justify-content: space-between;
+  /* align-content: flex-start; */
+}
+
+.sidebar {
+  height: 6rem;
+  width: 0.5rem;
+  background-color: #4361ee;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

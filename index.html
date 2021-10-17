@@ -1,15 +1,133 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="style.css">
-      <title>To-Do List</title>
-  </head>
-  <body>
-      
+<html lang="en">
 
-    <script src="app.js"></script>
-  </body>
-  </html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!-- font-awesome-icon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <title>To-Do List</title>
+</head>
+
+<body>
+  <div class="container">
+    <main>
+
+      <!-- UPPER-DIV -->
+      <div class="upperDiv">
+        <div class="rotate-div">
+          <header>
+            <h1>To Do</h1>
+          </header>
+
+          <!-- DATE -->
+          <div class="full-date">
+            <div class="dayYearMonth-Conti">
+              <div class="day">1</div>
+              <div class="yearAndMonths">
+                <div class="month">January</div>
+                <div class="year">2021</div>
+              </div>
+            </div>
+            <div class="weekDay">Monday</div>
+          </div>
+        </div>
+      </div>
+      <!-- HEADING -->
+
+
+      <!-- FORM FOR CREATING TO-DO LIST -->
+      <!-- <form>
+        <textarea class="todo-input" cols="25" rows="8"></textarea>
+        <button class="todo-btn" type="submit">
+          <i class="fas fa-plus-square"></i>
+        </button>
+      </form> -->
+
+
+      <!-- LOWER-DIV -->
+      <div class="lowerDiv">
+        <!-- div for to-do's list container -->
+        <div class="inside-conti">
+          <!--DIV FOR LIST  -->
+
+          <div class="todo-conti">
+            <!-- UL -->
+            <ul class="todo-list">
+              <!-- create all this through JS -->
+              <!-- DIV -->
+              <div class="todo">
+                <div class="sidebar"></div>
+                <div class="btns">
+                <div  class="btn-div1">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                <div class="btn-div2">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                </div>
+                <!-- LI -->
+                <!-- <li class="list">
+                  <h2>hello</h2>
+                  2-BUTTONS
+                  <button class="completed">Hello</button>
+                  <button class="delete">Yes</button>
+                </li> -->
+
+              </div>
+
+              <div class="todo">
+                <div class="sidebar"></div>
+                                <div class="btns">
+                <div  class="btn-div1">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                <div class="btn-div2">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                </div>
+                <!-- LI -->
+                <!-- <li class="list">
+                                <h2>hello</h2>
+                                2-BUTTONS
+                                <button class="completed">Hello</button>
+                                <button class="delete">Yes</button>
+                              </li> -->
+
+              </div>
+
+              <div class="todo">
+                <div class="sidebar"></div>
+                                <div class="btns">
+                <div  class="btn-div1">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                <div class="btn-div2">
+                  <!-- <a><i class="fab fa-linkedin fa-sm"></i></a> -->
+                </div>
+                </div>
+                <!-- LI -->
+                <!-- <li class="list">
+                                <h2>hello</h2>
+                                2-BUTTONS
+                                <button class="completed">Hello</button>
+                                <button class="delete">Yes</button>
+                              </li> -->
+
+              </div>
+
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
