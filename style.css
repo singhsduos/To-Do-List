@@ -18,7 +18,7 @@
   --lightBlue-shade: #b2fefa;
   --font-shade: #fff;
   --main-fontColor: #03045e;
-  --main-blue: #4361ee; 
+  --main-blue: #4361ee;
 }
 
 body {
@@ -40,6 +40,20 @@ body {
 
 h1 {
   margin: -3rem 0rem;
+}
+
+a {
+  font-size: 1rem;
+}
+
+i {
+  color: var(--main-fontColor);
+  width: 1rem;
+  height: 1rem;
+}
+
+i:hover {
+  color: white;
 }
 
 .container {
@@ -91,7 +105,7 @@ h1 {
 }
 
 .yearAndMonths {
-  margin: 0rem 0.4rem;
+  margin: 0rem 0.7rem;
 }
 
 .day {
@@ -111,6 +125,10 @@ h1 {
 .weekDay {
   font-size: 1.1rem;
   font-weight: 400;
+}
+
+.fa-plus-circle:before {
+    margin: -4.3rem;
 }
 
 .lowerDiv {
@@ -146,7 +164,7 @@ h1 {
   justify-content: space-between;
 }
 
-.sidebarAndheading{
+.sidebarAndheading {
   display: flex;
   align-items: center;
 }
@@ -158,18 +176,8 @@ h1 {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-.make-list{
+.make-list {
   margin-left: 1rem;
-}
-
-a{
-  font-size: 1rem;
-}
-
-i {
-  color: var(--main-fontColor);
-  width: 1rem;
-  height: 1rem;
 }
 
 .btn-div1 i {
@@ -206,8 +214,17 @@ i {
   background: var(--blue-theme);
   border-bottom-left-radius: 100%;
 }
+.btn-div1:hover {
+  background: #4ad66d;
+  color: white;
+}
 
 .btn-div2 {
   background: var(--lightBlue-shade);
   border-top-left-radius: 100%;
+}
+
+.btn-div2:hover {
+  background: #fd151b;
+  color: white;
 }
