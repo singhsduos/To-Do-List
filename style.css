@@ -238,6 +238,10 @@ i:hover {
   pointer-events: none;
 }
 
+.subject{
+  margin-bottom: 0.5rem;
+}
+
 /* DIALOG BOX CSS */
 
 /* The Dialog-Box (background) */

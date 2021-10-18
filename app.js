@@ -8,7 +8,8 @@ const span = document.getElementsByClassName("close")[0];
 const opentodoBtn = document.querySelector(".todo-btn");
 const todoList = document.querySelector(".todo-list");
 const addNewtodoBtn = document.querySelector(".addNewtodo-btn");
-
+const heading = document.getElementById("heading");
+const description = document.getElementById("desc");
 
 
 
@@ -136,13 +137,13 @@ function addNewItem(event) {
 
     // H2 FOR HEADING
     const subjectHeading = document.createElement("h2");
-    subjectHeading.innerText = "Meeting"
+    subjectHeading.innerText = heading.value;
     subjectHeading.classList.add("subject");
     makeListDiv.appendChild(subjectHeading);
 
     // H5 FOR DESCRIPTION
     const descriptionHeading = document.createElement("h5");
-    descriptionHeading.innerText = "Room 28"
+    descriptionHeading.innerText = description.value;
     descriptionHeading.classList.add("description");
     makeListDiv.appendChild(descriptionHeading);
 
@@ -209,4 +210,11 @@ function addNewItem(event) {
     toDoDiv.appendChild(sidebarAndheadingDiv);
     toDoDiv.appendChild(btnsDiv);
     todoList.appendChild(toDoDiv);
+
+    heading.value = "";
+    description.value = "";
+    dialogBox.style.display = "none";
+
+
+
 }
