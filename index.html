@@ -36,20 +36,32 @@
             <div class="addNewList">
               <a class="todo-btn" style="font-size: 3rem;"><i style="color: white;" class="fas fa-plus-circle"></i></a>
             </div>
-            <div class="weekDay">Monday</div>
+            <div class="dayAndFilter">
+              <div class="weekDay">Monday</div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- HEADING -->
 
 
       <!-- FORM FOR CREATING TO-DO LIST -->
-      <!-- <form>
-        <textarea class="todo-input" cols="25" rows="8"></textarea>
-        <button class="todo-btn" type="submit">
-          <i class="fas fa-plus-square"></i>
-        </button>
-      </form> -->
+
+      <div id="dialogBox" class="modal">
+        <form class="dialogBox-content">
+          <h3 class="formHeading">Add New Items in Your List</h3>
+          <span class="close">&times;</span>
+          <div class="todo-input-conti">
+
+            <label for="heading">Heading</label>
+            <input id="heading" placeholder="Write Heading.." type="text" name="todoHeading" class="todo-input"
+              required>
+
+            <label for="desc">Description</label>
+            <input id="desc" placeholder="Write Description.." type="text" name="todoDesc" class="todo-input" required>
+            <input type="submit" value="Add Item" class="addNewtodo-btn">
+          </div>
+        </form>
+      </div>
 
 
       <!-- LOWER-DIV -->
@@ -82,12 +94,12 @@
                 <!-- DIV FOR BUTTONS -->
                 <div class="btns">
                   <!-- DIV FOR BTN-1 -->
-                  <div class="btn-div1">
+                  <div onmouseover="btn1Hover(this)" onmouseout="btn1notHover(this)" class="btn-div1">
                     <!-- a FOR BTN-1 -->
                     <a style="font-size: 1rem;"><i class="fas fa-check"></i></a>
                   </div>
                   <!-- DIV FOR BTN-2 -->
-                  <div class="btn-div2">
+                  <div onmouseover="btn2Hover(this)" onmouseout="btn2notHover(this)" class="btn-div2">
                     <!-- a FOR BTN-2 -->
                     <a style="font-size: 1rem;"><i class="fas fa-trash"></i></a>
                   </div>
@@ -103,6 +115,28 @@
       </div>
     </main>
   </div>
+
+  <script>
+    const check = document.querySelector(".fa-check");
+    const trash = document.querySelector(".fa-trash");
+
+    function btn1Hover(x) {
+      check.style.color = "white";
+    }
+
+    function btn1notHover(x) {
+      check.style.color = "#03045e";
+    }
+
+    function btn2Hover(x) {
+      trash.style.color = "white";
+    }
+
+    function btn2notHover(x) {
+      trash.style.color = "#03045e";
+    }
+
+  </script>
 
   <script src="app.js"></script>
 </body>

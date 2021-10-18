@@ -3,9 +3,12 @@ const months = document.querySelector(".month");
 const year = document.querySelector(".year");
 const weeks = document.querySelector(".weekDay");
 
-const todoBtn = document.querySelector(".todo-btn");
+const dialogBox = document.getElementById("dialogBox");
+const span = document.getElementsByClassName("close")[0];
+const opentodoBtn = document.querySelector(".todo-btn");
 const todoList = document.querySelector(".todo-list");
-// const todoBtn = document.querySelector(".");
+const addNewtodoBtn = document.querySelector(".addNewtodo-btn");
+
 
 let monthsName = [
     "January",
@@ -74,4 +77,37 @@ function updateDate(dWeek, dNum, dMonth, dYear) {
     // updating days and time in HTML Doc
     day.innerHTML = checkNum(dNum);
     year.innerHTML = dYear;
+}
+
+// Event listener
+opentodoBtn.addEventListener("click", openForm);
+span.addEventListener('click', closeForm);
+window.addEventListener("click", closeFormOutside);
+addNewtodoBtn.addEventListener("click", addNewItem);
+
+
+
+// Functions
+
+// When the user clicks the button, open the dialogBox 
+function openForm() {
+    dialogBox.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the dialogBox
+function closeForm() {
+    dialogBox.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the dialogBox, close it
+function closeFormOutside(event){
+    if (event.target == dialogBox) {
+        dialogBox.style.display = "none";
+    }
+}
+
+function addNewItem(event) {
+    // preventform submiting
+    event.preventDefault();
+    console.log("hello");
 }

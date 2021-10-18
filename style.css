@@ -128,7 +128,11 @@ i:hover {
 }
 
 .fa-plus-circle:before {
-    margin: -4.3rem;
+  margin: -4.3rem;
+}
+
+.todo-btn {
+  cursor: pointer;
 }
 
 .lowerDiv {
@@ -227,4 +231,91 @@ i:hover {
 .btn-div2:hover {
   background: #fd151b;
   color: white;
+}
+
+.fa-check,
+.fa-trash {
+  pointer-events: none;
+}
+
+/* DIALOG BOX CSS */
+
+/* The Dialog-Box (background) */
+#dialogBox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Dialog-Box Content */
+.dialogBox-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.formHeading {
+  text-align: center;
+  color: var(--main-fontColor);
+  padding-bottom: 1rem;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -2rem;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.todo-input-conti {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
 }
