@@ -77,34 +77,31 @@
               <!-- create all this through JS -->
 
               <!-- DIV TODO-LIST-->
-              <div class="todo">
+             
                 <!-- DIV FOR HEADING AND SIDEBAR -->
-                <div class="sidebarAndheading">
+            
                   <!-- DIV SIDEBAR -->
-                  <div class="sidebar"></div>
+              
                   <!-- DIV FOR SUBJECT AND DESCRIPTION -->
-                  <div class="make-list">
+                
                     <!-- H2 FOR MEETING -->
-                    <h2 class="subject">Meeting</h2>
+                   
                     <!-- H5 FOR DESCRIPTION -->
-                    <h5 class="description">Room 28</h5>
-                  </div>
-                </div>
+                    
+                <!-- DIV-CLOSE TODO-LIST-->
 
+                
                 <!-- DIV FOR BUTTONS -->
-                <div class="btns">
+               
                   <!-- DIV FOR BTN-1 -->
-                  <div onmouseover="btn1Hover(this)" onmouseout="btn1notHover(this)" class="btn-div1">
+                  
                     <!-- a FOR BTN-1 -->
-                    <a style="font-size: 1rem;"><i class="fas fa-check"></i></a>
-                  </div>
+                    
                   <!-- DIV FOR BTN-2 -->
-                  <div onmouseover="btn2Hover(this)" onmouseout="btn2notHover(this)" class="btn-div2">
+                 
                     <!-- a FOR BTN-2 -->
-                    <a style="font-size: 1rem;"><i class="fas fa-trash"></i></a>
-                  </div>
-                </div>
-              </div>
+                
+              <!-- DIV-CLOSE FOR BUTTONS -->
 
 
             </ul>
@@ -116,27 +113,7 @@
     </main>
   </div>
 
-  <script>
-    const check = document.querySelector(".fa-check");
-    const trash = document.querySelector(".fa-trash");
 
-    function btn1Hover(x) {
-      check.style.color = "white";
-    }
-
-    function btn1notHover(x) {
-      check.style.color = "#03045e";
-    }
-
-    function btn2Hover(x) {
-      trash.style.color = "white";
-    }
-
-    function btn2notHover(x) {
-      trash.style.color = "#03045e";
-    }
-
-  </script>
 
   <script src="app.js"></script>
 </body>

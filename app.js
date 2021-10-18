@@ -10,6 +10,9 @@ const todoList = document.querySelector(".todo-list");
 const addNewtodoBtn = document.querySelector(".addNewtodo-btn");
 
 
+
+
+
 let monthsName = [
     "January",
     "February",
@@ -35,7 +38,7 @@ let weekDayName = [
     "Saturday",
 ];
 
- // calling function every second
+// calling function every second
 setInterval(timeStart, 1000);
 
 // function for getting current time
@@ -100,15 +103,110 @@ function closeForm() {
 }
 
 // When the user clicks anywhere outside of the dialogBox, close it
-function closeFormOutside(event){
+function closeFormOutside(event) {
     if (event.target == dialogBox) {
         dialogBox.style.display = "none";
     }
 }
 
+
+
+
 // Add new item in your to-do list
 function addNewItem(event) {
     // preventform submiting
     event.preventDefault();
-    console.log("hello");
+
+    // DIV TODO - LIST
+    const toDoDiv = document.createElement("div");
+    toDoDiv.classList.add("todo");
+
+    // DIV FOR HEADING AND SIDEBAR
+    const sidebarAndheadingDiv = document.createElement("div");
+    sidebarAndheadingDiv.classList.add("sidebarAndheading");
+
+    // DIV SIDEBAR
+    const sidebarDiv = document.createElement("div");
+    sidebarDiv.classList.add("sidebar");
+    sidebarAndheadingDiv.appendChild(sidebarDiv);
+
+    // DIV FOR SUBJECT AND DESCRIPTION
+    const makeListDiv = document.createElement("div");
+    makeListDiv.classList.add("make-list");
+
+    // H2 FOR HEADING
+    const subjectHeading = document.createElement("h2");
+    subjectHeading.innerText = "Meeting"
+    subjectHeading.classList.add("subject");
+    makeListDiv.appendChild(subjectHeading);
+
+    // H5 FOR DESCRIPTION
+    const descriptionHeading = document.createElement("h5");
+    descriptionHeading.innerText = "Room 28"
+    descriptionHeading.classList.add("description");
+    makeListDiv.appendChild(descriptionHeading);
+
+    // Add makelist under sidebarAndheadingDiv
+    sidebarAndheadingDiv.appendChild(makeListDiv);
+
+    // DIV FOR BUTTONS
+    const btnsDiv = document.createElement("div");
+    btnsDiv.classList.add("btns");
+
+    // DIV FOR BTN-1
+    const btnDiv1 = document.createElement("div");
+    btnDiv1.classList.add("btn-div1");
+    // Event Listener for btn-1 (check-button)
+    btnDiv1.addEventListener("mouseover", btn1mouseOver);
+    btnDiv1.addEventListener("mouseout", btn1mouseOut);
+
+
+
+    // a FOR BTN-1
+    const completedButton = document.createElement("a");
+    completedButton.style.fontSize = "1 rem";
+    const iCheck = document.createElement("i");
+    iCheck.classList.add("fas", "fa-check");
+    completedButton.appendChild(iCheck);
+    btnDiv1.appendChild(completedButton);
+    btnsDiv.appendChild(btnDiv1);
+
+    function btn1mouseOver() {
+        iCheck.style.color = "white";
+    }
+
+    function btn1mouseOut() {
+        iCheck.style.color = "#03045e";
+    }
+
+
+    // DIV FOR BTN-2
+    const btnDiv2 = document.createElement("div");
+    btnDiv2.classList.add("btn-div2");
+    // Event Listener for btn-2 (delete-button)
+    btnDiv2.addEventListener("mouseover", btn2mouseOver);
+    btnDiv2.addEventListener("mouseout", btn2mouseOut);
+
+    // a FOR BTN-2
+    const deleteButton = document.createElement("a");
+    deleteButton.style.fontSize = "1 rem";
+    const iTrash = document.createElement("i");
+    iTrash.classList.add("fas", "fa-trash");
+    deleteButton.appendChild(iTrash);
+    btnDiv2.appendChild(deleteButton);
+    btnsDiv.appendChild(btnDiv2);
+
+    function btn2mouseOver() {
+        iTrash.style.color = "white";
+    }
+
+    function btn2mouseOut() {
+        iTrash.style.color = "#03045e";
+    }
+
+
+    // Add sidebarAndheadingDiv under todoDiv
+    toDoDiv.appendChild(sidebarAndheadingDiv);
+    toDoDiv.appendChild(btnsDiv);
+    todoList.appendChild(toDoDiv);
 }
