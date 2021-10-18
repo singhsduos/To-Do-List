@@ -106,6 +106,7 @@ function closeFormOutside(event){
     }
 }
 
+// Add new item in your to-do list
 function addNewItem(event) {
     // preventform submiting
     event.preventDefault();
