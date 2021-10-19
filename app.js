@@ -272,7 +272,7 @@ function checkDelete(e) {
 }
 
 
-
+// setting auto-adjusted height for lower div when new to-do list added
 const lowerDivHeight = () =>{
     if (insideConti.offsetHeight > '366') {
         lowerDiv.style.height = insideConti.offsetHeight + 'px';

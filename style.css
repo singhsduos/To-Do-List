@@ -67,7 +67,6 @@ i:hover {
   justify-content: center;
   flex-wrap: wrap;
   min-height: 34.375rem;
-  /* position: absolute; */
 }
 
 .upperDiv {
@@ -106,6 +105,13 @@ i:hover {
   align-items: center;
 }
 
+.dayAndFilter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .yearAndMonths {
   margin: 0rem 0.7rem;
 }
@@ -130,7 +136,7 @@ i:hover {
 }
 
 .fa-plus-circle:before {
-  margin: -4.3rem;
+  margin: -2.5rem;
 }
 
 .todo-btn {
@@ -252,6 +258,34 @@ i:hover {
   padding-right: 1rem;
 }
 
+/* FILTER BOX CSS */
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  height: 2rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.2rem;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 4px;
+  border-color: white;
+  box-sizing: border-box;
+  background-color: var(--font-shade);
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+}
+
+
 /* DIALOG BOX CSS */
 
 /* The Dialog-Box (background) */
@@ -308,8 +342,7 @@ i:hover {
   padding: 20px;
 }
 
-input[type="text"],
-select {
+input[type="text"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
