@@ -34,8 +34,9 @@ body {
     var(--lightBlue-shade) 84%
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: var(--main-fontColor);
-  min-height: 100vh;
   display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 h1 {
@@ -66,6 +67,7 @@ i:hover {
   justify-content: center;
   flex-wrap: wrap;
   min-height: 34.375rem;
+  /* position: absolute; */
 }
 
 .upperDiv {
@@ -148,7 +150,7 @@ i:hover {
 .inside-conti {
   width: 80%;
   background: #f8f8f8;
-  min-height: 22.8rem;
+  min-height: 364.8px;
   position: absolute;
   left: 0;
   right: 0;
@@ -159,7 +161,7 @@ i:hover {
 }
 
 .todo {
-  height: 6rem;
+  min-height: 6rem;
   width: 95%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: var(--font-shade);
@@ -169,12 +171,12 @@ i:hover {
   transition: all 0.5s ease;
 }
 
-.todoCompleted{
+.todoCompleted {
   text-decoration: line-through;
   opacity: 0.5;
 }
 
-.todoFallDelete{
+.todoFallDelete {
   transform: translateY(8rem) rotateZ(25deg);
   opacity: 0;
 }
@@ -185,14 +187,14 @@ i:hover {
 }
 
 .sidebar {
-  height: 6rem;
-  width: 0.5rem;
+  min-width: 8px;
   background-color: var(--main-blue);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .make-list {
   margin-left: 1rem;
+  word-break: break-all;
 }
 
 .btn-div1 i {
@@ -244,13 +246,10 @@ i:hover {
   color: white;
 }
 
-.fa-check,
-.fa-trash {
-  /* pointer-events: none; */
-}
-
-.subject{
-  margin-bottom: 0.5rem;
+.subject,
+.description {
+  margin: 0.7rem 0rem;
+  padding-right: 1rem;
 }
 
 /* DIALOG BOX CSS */

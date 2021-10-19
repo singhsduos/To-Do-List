@@ -11,6 +11,10 @@ const addNewtodoBtn = document.querySelector(".addNewtodo-btn");
 const heading = document.getElementById("heading");
 const description = document.getElementById("desc");
 
+const body = document.querySelector("body");
+const lowerDiv = document.querySelector(".lowerDiv");
+const insideConti = document.querySelector(".inside-conti");
+
 
 
 
@@ -224,6 +228,8 @@ function addNewItem(event) {
     heading.value = "";
     description.value = "";
     dialogBox.style.display = "none";
+    sidebarDiv.style.height = toDoDiv.offsetHeight + 'px';
+    
 }
 
 
@@ -245,7 +251,7 @@ function checkDelete(e) {
 
     if (item.classList.value === 'fas fa-trash') {
         const toDoListDiv = item.parentElement.parentElement.parentElement.parentElement;
-         // first add animation then delete
+        // first add animation then delete
         toDoListDiv.classList.add("todoFallDelete");
         toDoListDiv.addEventListener("transitionend", function () {
             toDoListDiv.remove();
@@ -264,3 +270,19 @@ function checkDelete(e) {
         toDoListDiv.classList.toggle('todoCompleted');
     }
 }
+
+
+
+const lowerDivHeight = () =>{
+    if (insideConti.offsetHeight > '366') {
+        lowerDiv.style.height = insideConti.offsetHeight + 'px';
+        console.log(body.offsetHeight);
+    } else if (insideConti.offsetHeight <= '366') {
+        lowerDiv.style.height = "21.6875rem";
+        console.log("inside", insideConti.offsetHeight);
+        console.log("lowerdiv", lowerDiv.offsetHeight); 
+    }
+
+}
+
+setInterval(lowerDivHeight, 100);
