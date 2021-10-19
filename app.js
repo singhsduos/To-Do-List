@@ -10,6 +10,7 @@ const todoList = document.querySelector(".todo-list");
 const addNewtodoBtn = document.querySelector(".addNewtodo-btn");
 const heading = document.getElementById("heading");
 const description = document.getElementById("desc");
+const todoFilter = document.querySelector("#todoFilter");
 
 const body = document.querySelector("body");
 const lowerDiv = document.querySelector(".lowerDiv");
@@ -93,7 +94,7 @@ span.addEventListener('click', closeForm);
 window.addEventListener("click", closeFormOutside);
 addNewtodoBtn.addEventListener("click", addNewItem);
 todoList.addEventListener('click', checkDelete);
-
+todoFilter.addEventListener('click', filterOption);
 
 
 // Functions
@@ -272,15 +273,41 @@ function checkDelete(e) {
 }
 
 
+
+function filterOption(e) {
+    const todos = todoList.childNodes;
+    todos.forEach(function (todo) {
+        switch (e.target.value) {
+            case "all":
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if (todo.classList.contains("todoCompleted")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+            case "uncompleted":
+                if (!todo.classList.contains("todoCompleted")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+                break;
+        }
+        console.log(todo.classList.contains("todoCompleted"));
+    })
+}
+
+
 // setting auto-adjusted height for lower div when new to-do list added
 const lowerDivHeight = () =>{
     if (insideConti.offsetHeight > '366') {
         lowerDiv.style.height = insideConti.offsetHeight + 'px';
-        console.log(body.offsetHeight);
+     
     } else if (insideConti.offsetHeight <= '366') {
         lowerDiv.style.height = "21.6875rem";
-        console.log("inside", insideConti.offsetHeight);
-        console.log("lowerdiv", lowerDiv.offsetHeight); 
     }
 
 }
