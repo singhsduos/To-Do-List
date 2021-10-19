@@ -166,6 +166,17 @@ i:hover {
   margin: 0.7rem auto;
   display: flex;
   justify-content: space-between;
+  transition: all 0.5s ease;
+}
+
+.todoCompleted{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.todoFallDelete{
+  transform: translateY(8rem) rotateZ(25deg);
+  opacity: 0;
 }
 
 .sidebarAndheading {
@@ -235,7 +246,7 @@ i:hover {
 
 .fa-check,
 .fa-trash {
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 
 .subject{

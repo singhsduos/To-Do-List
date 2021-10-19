@@ -88,6 +88,7 @@ opentodoBtn.addEventListener("click", openForm);
 span.addEventListener('click', closeForm);
 window.addEventListener("click", closeFormOutside);
 addNewtodoBtn.addEventListener("click", addNewItem);
+todoList.addEventListener('click', checkDelete);
 
 
 
@@ -147,6 +148,12 @@ function addNewItem(event) {
     descriptionHeading.classList.add("description");
     makeListDiv.appendChild(descriptionHeading);
 
+    // if user didn't give input in any of the field then return from here
+    if (heading.value === "" || description.value === "") {
+        alert("Please give heading and description");
+        return;
+    }
+
     // Add makelist under sidebarAndheadingDiv
     sidebarAndheadingDiv.appendChild(makeListDiv);
 
@@ -161,8 +168,6 @@ function addNewItem(event) {
     btnDiv1.addEventListener("mouseover", btn1mouseOver);
     btnDiv1.addEventListener("mouseout", btn1mouseOut);
 
-
-
     // a FOR BTN-1
     const completedButton = document.createElement("a");
     completedButton.style.fontSize = "1 rem";
@@ -172,6 +177,7 @@ function addNewItem(event) {
     btnDiv1.appendChild(completedButton);
     btnsDiv.appendChild(btnDiv1);
 
+    // function for changing color of btn-1 on hover
     function btn1mouseOver() {
         iCheck.style.color = "white";
     }
@@ -197,6 +203,8 @@ function addNewItem(event) {
     btnDiv2.appendChild(deleteButton);
     btnsDiv.appendChild(btnDiv2);
 
+
+    // function for changing color of btn-2 on hover
     function btn2mouseOver() {
         iTrash.style.color = "white";
     }
@@ -211,10 +219,48 @@ function addNewItem(event) {
     toDoDiv.appendChild(btnsDiv);
     todoList.appendChild(toDoDiv);
 
+
+    // Make fields empty and after submitting form dialog-box auto close
     heading.value = "";
     description.value = "";
     dialogBox.style.display = "none";
+}
 
 
+// Mark Complete or Delete Item in ToDo List
+function checkDelete(e) {
 
+    const item = e.target;
+
+
+    // Delete todo-list item one by one
+    if (item.classList.value === 'btn-div2') {
+        const toDoListDiv = item.parentElement.parentElement;
+        // first add animation then delete
+        toDoListDiv.classList.add("todoFallDelete");
+        toDoListDiv.addEventListener("transitionend", function () {
+            toDoListDiv.remove();
+        });
+    }
+
+    if (item.classList.value === 'fas fa-trash') {
+        const toDoListDiv = item.parentElement.parentElement.parentElement.parentElement;
+         // first add animation then delete
+        toDoListDiv.classList.add("todoFallDelete");
+        toDoListDiv.addEventListener("transitionend", function () {
+            toDoListDiv.remove();
+        });
+    }
+
+
+    // Check todo-list item one by one
+    if (item.classList.value === 'btn-div1') {
+        const toDoListDiv = item.parentElement.parentElement;
+        toDoListDiv.classList.toggle('todoCompleted');
+    }
+
+    if (item.classList.value === 'fas fa-check') {
+        const toDoListDiv = item.parentElement.parentElement.parentElement.parentElement;
+        toDoListDiv.classList.toggle('todoCompleted');
+    }
 }
