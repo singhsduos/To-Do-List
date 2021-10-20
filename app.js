@@ -17,7 +17,7 @@ const lowerDiv = document.querySelector(".lowerDiv");
 const insideConti = document.querySelector(".inside-conti");
 
 
-
+// Set Date
 
 let monthsName = [
     "January",
@@ -273,7 +273,7 @@ function checkDelete(e) {
 }
 
 
-
+// Filter out option according to complete,uncomplete and all
 function filterOption(e) {
     const todos = todoList.childNodes;
     todos.forEach(function (todo) {
@@ -300,12 +300,12 @@ function filterOption(e) {
         } catch (err) {
             console.log("You got error");
         }
-    
+
     })
 }
 
 
-// setting auto-adjusted height for lower div when new to-do list added
+// Adjust height of lower div for new element added in List
 const lowerDivHeight = () => {
     if (insideConti.offsetHeight > '366') {
         lowerDiv.style.height = insideConti.offsetHeight + 'px';
@@ -313,7 +313,7 @@ const lowerDivHeight = () => {
     } else if (insideConti.offsetHeight <= '366') {
         lowerDiv.style.height = "21.6875rem";
     }
-   
+
 
 }
 
