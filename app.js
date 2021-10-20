@@ -230,7 +230,7 @@ function addNewItem(event) {
     description.value = "";
     dialogBox.style.display = "none";
     sidebarDiv.style.height = toDoDiv.offsetHeight + 'px';
-    
+
 }
 
 
@@ -277,38 +277,43 @@ function checkDelete(e) {
 function filterOption(e) {
     const todos = todoList.childNodes;
     todos.forEach(function (todo) {
-        switch (e.target.value) {
-            case "all":
-                todo.style.display = "flex";
-                break;
-            case "completed":
-                if (todo.classList.contains("todoCompleted")) {
+        try {
+            switch (String(e.target.value)) {
+                case "all":
                     todo.style.display = "flex";
-                } else {
-                    todo.style.display = "none";
-                }
-                break;
-            case "uncompleted":
-                if (!todo.classList.contains("todoCompleted")) {
-                    todo.style.display = "flex";
-                } else {
-                    todo.style.display = "none";
-                }
-                break;
+                    break;
+                case "completed":
+                    if (todo.classList.contains('todoCompleted')) {
+                        todo.style.display = "flex";
+                    } else {
+                        todo.style.display = "none";
+                    }
+                    break;
+                case "uncompleted":
+                    if (!todo.classList.contains('todoCompleted')) {
+                        todo.style.display = "flex";
+                    } else {
+                        todo.style.display = "none";
+                    }
+                    break;
+            }
+        } catch (err) {
+            console.log("You got error");
         }
-        console.log(todo.classList.contains("todoCompleted"));
+    
     })
 }
 
 
 // setting auto-adjusted height for lower div when new to-do list added
-const lowerDivHeight = () =>{
+const lowerDivHeight = () => {
     if (insideConti.offsetHeight > '366') {
         lowerDiv.style.height = insideConti.offsetHeight + 'px';
-     
+
     } else if (insideConti.offsetHeight <= '366') {
         lowerDiv.style.height = "21.6875rem";
     }
+   
 
 }
 
