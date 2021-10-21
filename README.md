@@ -5,8 +5,9 @@ This is a To-Do List where you note down thing for a day that what task you will
 
 
 ## Things I learend
-1. 
-2. 
+1. Local Storage
+2. Created filter option
+3. Adding new elements in real-time
 
 
 ## Tech Stack
@@ -15,6 +16,9 @@ This is a To-Do List where you note down thing for a day that what task you will
 [![jAVASCRIPT](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## ScreenShot
+![Screenshot_20211022_001353](https://user-images.githubusercontent.com/32032008/138338470-afba34c3-4eb9-4845-9acc-c3b2750f90ec.png)
+![Screenshot_20211022_001653](https://user-images.githubusercontent.com/32032008/138338479-61ec1754-f6d8-4007-a737-5f2e81cff68a.png)
+![Screenshot_20211022_001707](https://user-images.githubusercontent.com/32032008/138338482-06aba16b-7489-46c0-9faa-9f8e56984bce.png)
 
 
 
