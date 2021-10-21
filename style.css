@@ -21,7 +21,11 @@
   --main-blue: #4361ee;
 }
 
+
 body {
+  background-attachment: fixed !important;
+  height: 100%;
+  background-repeat: no-repeat;
   background: var(--lightBlue-shade); /*  fallback for old browsers */
   background: -webkit-linear-gradient(
     315deg,
@@ -62,12 +66,19 @@ i:hover {
   color: white;
 }
 
-
-/* footer */
+/* FOOTER */
 
 footer {
   margin-top: 1rem;
 }
+
+/*
+ ______________________________________________
+|                                              |
+|              UTILITIES CLASS                 |
+|______________________________________________|
+
+*/
 
 
 .container {
@@ -301,7 +312,6 @@ select:focus {
   outline: none;
 }
 
-
 /* DIALOG BOX CSS */
 
 /* The Dialog-Box (background) */
@@ -381,4 +391,67 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #45a049;
+}
+
+/*
+ ______________________________________________
+|                                              |
+|            MEDIA QUERIES CSS                 |
+|______________________________________________|
+*/
+
+@media screen and (max-width: 540px) {
+  .container {
+    width: 27.625rem;
+  }
+
+  .upperDiv {
+    width: 27.625rem;
+  }
+
+  .full-date {
+    width: 32.6rem;
+  }
+
+  .dialogBox-content {
+    width: 86%;
+  }
+
+  .lowerDiv {
+    width: 27.625rem;
+  }
+
+  .inside-conti {
+    width: 86%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    width: 22.563rem;
+  }
+
+  .upperDiv {
+    width: 22.563rem;
+  }
+
+  .full-date {
+    width: 29.563rem;
+  }
+
+  .lowerDiv {
+    width: 22.563rem;
+  }
+
+  .day {
+    font-size: 2rem;
+  }
+
+  .month {
+    font-size: 1rem;
+  }
+
+  .fa-plus-circle:before {
+    margin: -1.5rem;
+  }
 }
