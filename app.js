@@ -330,9 +330,8 @@ const lowerDivHeight = () => {
 
 setInterval(lowerDivHeight, 100);
 
+
 // Save List in Local Storage
-
-
 function saveLocalTodos(todoHeading, todoDesc) {
     let todos;
     let badaTodo;
@@ -354,7 +353,7 @@ function saveLocalTodos(todoHeading, todoDesc) {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-
+// Get local storage data and reflect client side
 function getToDos() {
     let todos;
     let badaTodo;
@@ -377,7 +376,6 @@ function getToDos() {
         for (; i < todos.length; i++) {
             // DIV TODO - LIST
             count++;
-            console.log(count);
             if (count > 1) return;
 
             const toDoDiv = document.createElement("div");
@@ -485,6 +483,7 @@ function getToDos() {
 
 }
 
+// Deleting ToDo List item make delete from localstorage also
 function removeLocalTodos(todo) {
     let todos;
     let badaTodo;
@@ -508,7 +507,4 @@ function removeLocalTodos(todo) {
     todos.splice(todos.indexOf(todoDescIndex), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
 
-    console.log(todo.children[0].children[1].children[0].innerText);
-
-
-}
+}   
