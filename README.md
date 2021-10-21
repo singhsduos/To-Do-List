@@ -1,7 +1,7 @@
 # To-Do-List
 This is a To-Do List where you note down thing for a day that what task you will do in a day or in upcoming days.
 
-### <a href="https://github.com/singhsduos/To-Do-List" target="_blank">**Visit Now 🚀**</a>
+### <a href="https://neelesh-todolist.netlify.app/" target="_blank">**Visit Now 🚀**</a>
 
 
 ## Things I learend
