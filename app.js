@@ -17,7 +17,7 @@ const lowerDiv = document.querySelector(".lowerDiv");
 const insideConti = document.querySelector(".inside-conti");
 
 
-// Set Date
+// Set Date, Month and WeekDayName
 
 let monthsName = [
     "January",
@@ -46,6 +46,20 @@ let weekDayName = [
 
 // calling function every second
 setInterval(timeStart, 1000);
+
+
+
+// Event listener
+document.addEventListener('DOMContentLoaded', getToDos);
+opentodoBtn.addEventListener("click", openForm);
+span.addEventListener('click', closeForm);
+window.addEventListener("click", closeFormOutside);
+addNewtodoBtn.addEventListener("click", addNewItem);
+todoList.addEventListener('click', checkDelete);
+todoFilter.addEventListener('click', filterOption);
+
+
+// Functions    
 
 // function for getting current time
 function timeStart() {
@@ -87,17 +101,6 @@ function updateDate(dWeek, dNum, dMonth, dYear) {
     day.innerHTML = checkNum(dNum);
     year.innerHTML = dYear;
 }
-
-// Event listener
-opentodoBtn.addEventListener("click", openForm);
-span.addEventListener('click', closeForm);
-window.addEventListener("click", closeFormOutside);
-addNewtodoBtn.addEventListener("click", addNewItem);
-todoList.addEventListener('click', checkDelete);
-todoFilter.addEventListener('click', filterOption);
-
-
-// Functions
 
 // When the user clicks the button, open the dialogBox 
 function openForm() {
@@ -152,6 +155,11 @@ function addNewItem(event) {
     descriptionHeading.innerText = description.value;
     descriptionHeading.classList.add("description");
     makeListDiv.appendChild(descriptionHeading);
+
+
+    // saving in local storage
+    saveLocalTodos(heading.value, description.value);
+
 
     // if user didn't give input in any of the field then return from here
     if (heading.value === "" || description.value === "") {
@@ -234,6 +242,7 @@ function addNewItem(event) {
 }
 
 
+
 // Mark Complete or Delete Item in ToDo List
 function checkDelete(e) {
 
@@ -245,6 +254,7 @@ function checkDelete(e) {
         const toDoListDiv = item.parentElement.parentElement;
         // first add animation then delete
         toDoListDiv.classList.add("todoFallDelete");
+        removeLocalTodos(toDoListDiv);
         toDoListDiv.addEventListener("transitionend", function () {
             toDoListDiv.remove();
         });
@@ -254,6 +264,7 @@ function checkDelete(e) {
         const toDoListDiv = item.parentElement.parentElement.parentElement.parentElement;
         // first add animation then delete
         toDoListDiv.classList.add("todoFallDelete");
+        removeLocalTodos(toDoListDiv);
         toDoListDiv.addEventListener("transitionend", function () {
             toDoListDiv.remove();
         });
@@ -275,7 +286,7 @@ function checkDelete(e) {
 
 // Filter out option according to complete,uncomplete and all
 function filterOption(e) {
-    const todos = todoList.childNodes;
+    let todos = todoList.childNodes;
     todos.forEach(function (todo) {
         try {
             switch (String(e.target.value)) {
@@ -318,3 +329,186 @@ const lowerDivHeight = () => {
 }
 
 setInterval(lowerDivHeight, 100);
+
+// Save List in Local Storage
+
+
+function saveLocalTodos(todoHeading, todoDesc) {
+    let todos;
+    let badaTodo;
+
+    // check if there already have item list in local or not
+    if (localStorage.getItem("badaTodo") === null || localStorage.getItem("todos") === null) {
+        badaTodo = [];
+        todos = [];
+    }
+    else {
+        badaTodo = JSON.parse(localStorage.getItem("badaTodo"));
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+
+    badaTodo.push(todoHeading);
+    todos.push(todoDesc);
+    localStorage.setItem("badaTodo", JSON.stringify(badaTodo));
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+
+function getToDos() {
+    let todos;
+    let badaTodo;
+
+    // check if there already have item list in local or not
+    if (localStorage.getItem("badaTodo") === null || localStorage.getItem("todos") === null) {
+        badaTodo = [];
+        todos = [];
+    }
+    else {
+        badaTodo = JSON.parse(localStorage.getItem("badaTodo"));
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+
+    let i = 0;
+    badaTodo.forEach(function (todoHeading) {
+        let count = 0;
+
+        for (; i < todos.length; i++) {
+            // DIV TODO - LIST
+            count++;
+            console.log(count);
+            if (count > 1) return;
+
+            const toDoDiv = document.createElement("div");
+            toDoDiv.classList.add("todo");
+
+            // DIV FOR HEADING AND SIDEBAR
+            const sidebarAndheadingDiv = document.createElement("div");
+            sidebarAndheadingDiv.classList.add("sidebarAndheading");
+
+            // DIV SIDEBAR
+            const sidebarDiv = document.createElement("div");
+            sidebarDiv.classList.add("sidebar");
+            sidebarAndheadingDiv.appendChild(sidebarDiv);
+
+            // DIV FOR SUBJECT AND DESCRIPTION
+            const makeListDiv = document.createElement("div");
+            makeListDiv.classList.add("make-list");
+
+            // H2 FOR HEADING
+            const subjectHeading = document.createElement("h2");
+            subjectHeading.innerText = todoHeading;
+            subjectHeading.classList.add("subject");
+            makeListDiv.appendChild(subjectHeading);
+
+            // H5 FOR DESCRIPTION
+            const descriptionHeading = document.createElement("h5");
+            descriptionHeading.innerText = todos[i];
+            descriptionHeading.classList.add("description");
+            makeListDiv.appendChild(descriptionHeading);
+
+
+            // Add makelist under sidebarAndheadingDiv
+            sidebarAndheadingDiv.appendChild(makeListDiv);
+
+            // DIV FOR BUTTONS
+            const btnsDiv = document.createElement("div");
+            btnsDiv.classList.add("btns");
+
+            // DIV FOR BTN-1
+            const btnDiv1 = document.createElement("div");
+            btnDiv1.classList.add("btn-div1");
+            // Event Listener for btn-1 (check-button)
+            btnDiv1.addEventListener("mouseover", btn1mouseOver);
+            btnDiv1.addEventListener("mouseout", btn1mouseOut);
+
+            // a FOR BTN-1
+            const completedButton = document.createElement("a");
+            completedButton.style.fontSize = "1 rem";
+            const iCheck = document.createElement("i");
+            iCheck.classList.add("fas", "fa-check");
+            completedButton.appendChild(iCheck);
+            btnDiv1.appendChild(completedButton);
+            btnsDiv.appendChild(btnDiv1);
+
+            // function for changing color of btn-1 on hover
+            function btn1mouseOver() {
+                iCheck.style.color = "white";
+            }
+
+            function btn1mouseOut() {
+                iCheck.style.color = "#03045e";
+            }
+
+
+            // DIV FOR BTN-2
+            const btnDiv2 = document.createElement("div");
+            btnDiv2.classList.add("btn-div2");
+            // Event Listener for btn-2 (delete-button)
+            btnDiv2.addEventListener("mouseover", btn2mouseOver);
+            btnDiv2.addEventListener("mouseout", btn2mouseOut);
+
+            // a FOR BTN-2
+            const deleteButton = document.createElement("a");
+            deleteButton.style.fontSize = "1 rem";
+            const iTrash = document.createElement("i");
+            iTrash.classList.add("fas", "fa-trash");
+            deleteButton.appendChild(iTrash);
+            btnDiv2.appendChild(deleteButton);
+            btnsDiv.appendChild(btnDiv2);
+
+
+            // function for changing color of btn-2 on hover
+            function btn2mouseOver() {
+                iTrash.style.color = "white";
+            }
+
+            function btn2mouseOut() {
+                iTrash.style.color = "#03045e";
+            }
+
+
+            // Add sidebarAndheadingDiv under todoDiv
+            toDoDiv.appendChild(sidebarAndheadingDiv);
+            toDoDiv.appendChild(btnsDiv);
+            todoList.appendChild(toDoDiv);
+
+
+            // Make fields empty and after submitting form dialog-box auto close
+            dialogBox.style.display = "none";
+            sidebarDiv.style.height = toDoDiv.offsetHeight + 'px';
+
+        }
+    });
+
+
+}
+
+function removeLocalTodos(todo) {
+    let todos;
+    let badaTodo;
+
+    // check if there already have item list in local or not
+    if (localStorage.getItem("badaTodo") === null || localStorage.getItem("todos") === null) {
+        badaTodo = [];
+        todos = [];
+    }
+    else {
+        badaTodo = JSON.parse(localStorage.getItem("badaTodo"));
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+    const todoHeadingIndex = todo.children[0].children[1].children[0].innerText;
+    const todoDescIndex = todo.children[0].children[1].children[0].innerText;
+
+    badaTodo.splice(badaTodo.indexOf(todoHeadingIndex), 1);
+    localStorage.setItem('badaTodo', JSON.stringify(badaTodo));
+
+    todos.splice(todos.indexOf(todoDescIndex), 1);
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    console.log(todo.children[0].children[1].children[0].innerText);
+
+
+}
