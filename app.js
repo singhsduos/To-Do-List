@@ -483,7 +483,7 @@ function getToDos() {
 
 }
 
-// Deleting ToDo List item make delete from localstorage also
+// Deleting ToDo List item make delete from localstorage
 function removeLocalTodos(todo) {
     let todos;
     let badaTodo;
