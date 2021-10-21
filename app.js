@@ -1,8 +1,10 @@
+// All Elements related Date events
 const day = document.querySelector(".day");
 const months = document.querySelector(".month");
 const year = document.querySelector(".year");
 const weeks = document.querySelector(".weekDay");
 
+// All type of div
 const dialogBox = document.getElementById("dialogBox");
 const span = document.getElementsByClassName("close")[0];
 const opentodoBtn = document.querySelector(".todo-btn");
@@ -12,6 +14,7 @@ const heading = document.getElementById("heading");
 const description = document.getElementById("desc");
 const todoFilter = document.querySelector("#todoFilter");
 
+// Elements related to set auto-heights
 const body = document.querySelector("body");
 const lowerDiv = document.querySelector(".lowerDiv");
 const insideConti = document.querySelector(".inside-conti");
