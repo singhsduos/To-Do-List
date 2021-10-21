@@ -26,7 +26,7 @@ This is a To-Do List where you note down thing for a day that what task you will
 
 ## Demo Video
 
-
+![ToDo](https://user-images.githubusercontent.com/32032008/138342431-e072074d-3fcf-40b7-8d49-f107e799874c.gif)
 
 
 
